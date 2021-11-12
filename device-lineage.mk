@@ -5,6 +5,9 @@ DEVICE_PACKAGE_OVERLAYS += device/google/wahoo/overlay-lineage
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.telephony.euicc.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/android.hardware.telephony.euicc.xml
 
+# Kernel headers
+PRODUCT_VENDOR_KERNEL_HEADERS := device/google/wahoo/kernel-headers
+
 # IMS
 PRODUCT_PACKAGES += \
    com.android.ims.rcsmanager \
@@ -43,9 +46,17 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Setting vendor SPL
 VENDOR_SECURITY_PATCH := "2019-08-01"
 
+# Shared java libs
+PRODUCT_PACKAGES += \
+    com.android.nfc_extras
+
 # MiFare Permissions file
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/com.nxp.mifare.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/com.nxp.mifare.xml
 
 # Google Assistant
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += ro.opa.eligible_device=true
+
+# Trust HAL
+PRODUCT_PACKAGES += \
+    vendor.lineage.trust@1.0-service
