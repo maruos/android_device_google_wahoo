@@ -15,6 +15,7 @@
 #
 
 import /vendor/etc/init/hw/init.${ro.hardware}.usb.rc
+import init.maru.rc
 
 on charger
     write /sys/devices/system/cpu/cpu2/online 0
@@ -889,4 +890,3 @@ on property:wlan.driver.status=ok
 on property:sys.retaildemo.enabled=1
     setprop persist.vendor.charge.stop.level 35
     setprop persist.vendor.charge.start.level 30
-
